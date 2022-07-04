@@ -58,6 +58,7 @@ button1=tk.Button(
     font=standardFont,
     command=generateQrCode
 )
+
 button1.pack(**packargs)
 myLabel.pack(**packargs)
 root.mainloop()
