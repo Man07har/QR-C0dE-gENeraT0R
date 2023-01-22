@@ -2,7 +2,8 @@ import qrcode
 import image
 import tkinter as tk
 from PIL import Image       
-import os                                                                         
+import os       
+import time                                                                  
 
 
 standardFont=("Comic Sans",18)
@@ -43,11 +44,11 @@ def generateQrCode():
     qr.add_data(inp)
     qr.make(fit=True)
     img=qr.make_image(fill="black",back_color="white")
-    img.save(f"{inp}test.png")
-    img = Image.open(f"{inp}test.png")
+    img.save(f"{time.perf_counter().__floor__()}test.png")
+    img = Image.open(f"{time.perf_counter().__floor__()}test.png")
     
     photo.config(
-        file=f"{inp}test.png"
+        file=f"{time.perf_counter().__floor__()}test.png"
     )
 
 
