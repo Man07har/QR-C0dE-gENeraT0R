@@ -31,7 +31,7 @@ photo=tk.PhotoImage(file="")
 myLabel=tk.Label(image=photo)
 
 textArea.pack(**packargs)
-def generateQrCode():
+def generateQrCode(_=""):
     inp=textArea.get(
         "1.0",
         "end-1c"
@@ -43,7 +43,7 @@ def generateQrCode():
     )
     qr.add_data(inp)
     qr.make(fit=True)
-    img=qr.make_image(fill="black",back_color="white")
+    img=qr.make_image(fill_color=(164,25,61),back_color=(255,223,185))
     img.save(f"{time.perf_counter().__floor__()}test.png")
     img = Image.open(f"{time.perf_counter().__floor__()}test.png")
     
@@ -62,4 +62,5 @@ button1=tk.Button(
 
 button1.pack(**packargs)
 myLabel.pack(**packargs)
+root.bind("<Return>",generateQrCode)
 root.mainloop()
